@@ -1,0 +1,92 @@
+const modifyChannelPerms = async (client, message, args, name, code) => {
+
+    let r = code.split("$modifyChannelPerms[").length - 1
+
+    let inside = code.split("modifyChannelPerms[")[r].split("]")[0]
+
+    let fields = inside.split(";")
+
+    let ch = fields.shift()
+
+    let id = fields.pop()
+
+    let opt = message.guild.roles.cache.get(id) || message.guild.members.cache.get(id)
+
+    if(!opt) return message.channel.send(`:x: Invalid ID in \`$modifyChannelPerms[${inside}]\``)
+
+    let denyPerms = fields.filter(x => x[0] === "-")
+
+    let addPerms = fields.filter(x => x[0] === "+")
+
+    let perms=  {
+        addreactions: "ADD_REACTIONS",
+        sendmessages: "SEND_MESSAGES",
+        viewchannel: "VIEW_CHANNEL",
+        embedlinks: "EMBED_LINKS",
+        useexternalemoji: "USE_EXTERNAL_EMOJIS",
+        attachfiles: "ATTACH_FILES",
+        sendttsmessage: "SEND_TTS_MESSAGES",
+        readhistory: "READ_MESSAGE_HISTORY",
+        managechannel: "MANAGE_CHANNELS",
+        managemessages: "MANAGE_MESSAGES"
+    }
+
+    let channel = message.guild.channels.cache.get(ch) || client.channels.cache.get(ch) 
+
+    if (!channel) return message.channel.send(`:x: Invalid channel ID in \`$modifyChannelPerms[${inside}]\``)
+
+    if (!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send(`:x: Failed to modify channel perms.`)
+
+    let handler = true
+
+    denyPerms.map((perm, y) => { 
+        if (!handler) return
+
+        let p = perms[perm.split("-")[1]]
+
+        if (!p) { 
+            message.channel.send(`:x: ${perm} is not a valid permission`)
+            
+            return handler = false
+        } else {
+            denyPerms[y] = p
+        }
+    })
+
+    addPerms.map((perm, y) => { 
+        if (!handler) return
+
+        let p = perms[perm.split("+")[1]]
+
+        if (!p) { 
+            message.channel.send(`:x: ${perm} is not a valid permission`)
+            
+            return handler = false
+        } else {
+            addPerms[y] = p
+        }
+    })
+
+    await new Promise(resolve => setTimeout(resolve, 100))
+
+    if (!handler) return
+
+    let object = {}
+
+
+
+    await new Promise(resolve => setTimeout(resolve, 100))
+
+    channel.overwritePermissions([{
+      id: opt.id,
+      deny: denyPerms,
+      allow: addPerms
+    }])
+    code = code.replaceLast(`$modifyChannelPerms[${inside}]`, "")
+
+    return {
+        code: code
+    }
+}
+
+module.exports = modifyChannelPerms

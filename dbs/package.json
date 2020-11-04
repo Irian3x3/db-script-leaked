@@ -1,0 +1,57 @@
+{
+  "_from": "discordbot-script",
+  "_id": "discordbot-script@1.8.4",
+  "_inBundle": false,
+  "_integrity": "sha512-qLTZKOJBcvl/ZpMyIVTiaXqk193tuw3Egz/bcp57bEa84wAmbZDfaDwXCAwhEscdiGlRnMvM6KdEk7GboMaKcQ==",
+  "_location": "/discordbot-script",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "discordbot-script",
+    "name": "discordbot-script",
+    "escapedName": "discordbot-script",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/discordbot-script/-/discordbot-script-1.8.4.tgz",
+  "_shasum": "781f7ac481ecb31aaf816b847b74802bef1b830c",
+  "_spec": "discordbot-script",
+  "_where": "C:\\Users\\Irian\\Documents\\other stuff\\dbs\\db-script-leaked",
+  "author": {
+    "name": "ctk"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@vitalets/google-translate-api": "3.0.0",
+    "discord.js": "~12.2.0",
+    "moment": "2.27.0",
+    "ms": "2.1.2",
+    "node-fetch": "2.6.0",
+    "parse-ms": "2.1.0",
+    "quick.db": "~7.1.1"
+  },
+  "deprecated": false,
+  "description": "discordbot-script is the powerfull library, allowing you to interact with discord easily.",
+  "keywords": [
+    "discord",
+    "bdfd",
+    "bot designer for discord",
+    "dbd",
+    "db-script",
+    "discordbot-script"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "discordbot-script",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js"
+  },
+  "version": "1.8.4"
+}
