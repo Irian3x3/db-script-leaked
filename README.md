@@ -3,9 +3,9 @@ This repository is a leak of the source of [DB-Script](https://www.db-script.xyz
 
 # [![](https://nodei.co/npm/discordbot-script.png?mini=true)](https://npmjs.com/package/discordbot-script) [![](https://discordapp.com/api/guilds/721775228140781648/embed.png?style=shield&amp;t=1515755028514)](https://discord.com/invite/yRuJS9T)
 
-## Note: this source code is outdated (v1.8.4)
-
 Wanna *~~steal~~* this code for yourself? Run:
 ```
 git clone https://github.com/Irian3x3/db-script-leaked.git
 ```
+
+## Note: this source code is outdated (v1.8.4)
